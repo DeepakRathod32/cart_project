@@ -13,7 +13,29 @@ class CartItem extends React.Component {
     }
 
     increaseQuantity = () => {
-        console.log('this', this.state);
+        // this.state.Qty += 1;
+        // console.log('this', this.state);
+
+        // setState form 1
+        // this.setState({
+        //     Qty : this.state.Qty + 1
+        // });
+
+        // setState form 2 - if prevState required use this
+        this.setState( (prevState) => {
+            return {
+                Qty : prevState.Qty + 1
+            }
+        });
+    }
+
+    decreaseQuantity = () => {
+        
+        this.setState( (prevState) => {
+            return {
+                Qty : this.state.Qty - 1
+            }
+        });
     }
 
     render (){
@@ -32,13 +54,14 @@ class CartItem extends React.Component {
                         <img  
                             alt="increase" 
                             className="action-icons" 
-                            src="https://as2.ftcdn.net/v2/jpg/00/70/16/29/1000_F_70162903_5mFpUbO3ZfRyD4gslH8j2c5VxjGMKU9G.jpg"
+                            src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
                             onClick={this.increaseQuantity}
                         />
                         <img 
                             alt="decrease" 
                             className="action-icons" 
                             src="https://as1.ftcdn.net/v2/jpg/03/73/49/86/1000_F_373498649_nBxauQ0ipBSVrVcMpWWVmTpXu3BLvRyY.jpg"
+                            onClick={this.decreaseQuantity}
                         />
                         <img 
                             alt="delete" 
