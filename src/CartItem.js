@@ -1,17 +1,6 @@
 import React from "react";
 
 class CartItem extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            price: 9999,
-            title: 'Mobile Phone',
-            Qty: 1,
-            img: ''
-        }
-        // this.increaseQuantity = this.increaseQuantity.bind(this);
-        this.testing()
-    }
 
     increaseQuantity = () => {
         // this.state.Qty += 1;
@@ -39,24 +28,24 @@ class CartItem extends React.Component {
         });
     }
 
-    testing(){
-        const promise = new Promise((resolve, reject) => {
-            setTimeout( () => {
-                resolve('done');
-            },5000);
-        });
+    // testing(){
+    //     const promise = new Promise((resolve, reject) => {
+    //         setTimeout( () => {
+    //             resolve('done');
+    //         },5000);
+    //     });
 
-        promise.then( () => {
-            // setState acts like a synchronous call
-            this.setState({ qty: this.state.Qty + 10});
+    //     promise.then( () => {
+    //         // setState acts like a synchronous call
+    //         this.setState({ qty: this.state.Qty + 10});
 
-            this.setState({ qty: this.state.Qty + 10});
+    //         this.setState({ qty: this.state.Qty + 10});
 
-            this.setState({ qty: this.state.Qty + 10});
+    //         this.setState({ qty: this.state.Qty + 10});
 
-            console.log('this.state', this.state);
-        });
-    }
+    //         console.log('this.state', this.state);
+    //     });
+    // }
 
     decreaseQuantity = () => {
         const {Qty} = this.state;
@@ -73,11 +62,12 @@ class CartItem extends React.Component {
     }
 
     render (){
-        console.log('render');
+        // console.log('this.props', this.props);
 
-        const {price, title, Qty} = this.state;
+        const {price, title, Qty} = this.props.product;
         return (
             <div className="cart-item">
+                {/* {this.props.jsx} */}
                 <div className="left-block">
                     <img style={styles.image} />
                 </div>
