@@ -101,6 +101,7 @@ getCartTotal = () => {
     const {products} = this.state;
     return (
       <div className="App">
+        
         <Navbar count={this.getCartCount()}/>
         <Cart 
         products={products}
